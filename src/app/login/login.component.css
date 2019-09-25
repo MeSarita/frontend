@@ -145,15 +145,20 @@ iframe {
   background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
   background: linear-gradient(-135deg, #c850c0, #4158d0); */
 
-  background: #42136b;
+  /* background: #42136b;
   background: -webkit-linear-gradient(-15deg, #c850c0, #4158d0);
   background: -o-linear-gradient(-15deg, #c850c0, #4158d0);
   background: -moz-linear-gradient(-15deg, #c850c0, #4158d0);
-  background: linear-gradient(-15deg, #c850c0, #4158d0);
+  background: linear-gradient(-15deg, #c850c0, #4158d0); */
+  background-image: url("../../assets/mlbg2.jpg"); 
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
 .wrap-login100 {
   /* width: 960px; */
+
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -178,6 +183,9 @@ iframe {
   max-width: 100%;
 }
 
+.spl{
+
+}
 
 
 
@@ -455,3 +463,4 @@ iframe {
     opacity: 1;
   }
 }
+
