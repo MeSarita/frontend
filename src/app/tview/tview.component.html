@@ -1,10 +1,17 @@
 <ng-container *ngIf="(asyncTabs | async) === null">
-    Loading tabs...
-  </ng-container>
-  
-  <mat-tab-group>
-    <mat-tab *ngFor="let tab of asyncTabs | async">
-      <ng-template mat-tab-label>{{tab.label}}</ng-template>
-      {{tab.content}}
-    </mat-tab>
-  </mat-tab-group>
+  Upload File to get Started
+</ng-container>
+
+<mat-tab-group mat-align-tabs="center" #tref mat-stretch-tabs>
+  <mat-tab *ngFor="let tab of asyncTabs | async">
+    <ng-template mat-tab-label>{{tab.label}}</ng-template>
+    {{tab.content}}
+  </mat-tab>
+
+</mat-tab-group>
+
+<!-- <mat-tab-group [color]="primary" [backgroundColor]="accent" mat-align-tabs="center" mat-stretch-tabs>
+    <mat-tab label="First"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</mat-tab>
+    <mat-tab label="Second"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </mat-tab>
+    <mat-tab label="Third"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </mat-tab>
+  </mat-tab-group> -->

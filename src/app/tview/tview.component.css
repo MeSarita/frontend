@@ -1,0 +1,37 @@
+
+
+[mat-align-tabs=center] .mat-tab-labels {
+    margin-bottom: 10px !important;
+}
+
+
+.mat-tab-header, .mat-tab-nav-bar {
+    border-bottom: none;
+}
+
+
+.mat-ink-bar {
+    background-color: transparent !important;
+}
+
+.mat-tab-label {
+    margin: 0 15px;
+    height: 40px !important;
+    background-color:#eaeaea;
+    border-radius: 2px;
+    border:1px solid rgb(77, 61, 61);
+}
+
+
+
+.mat-tab-label.mat-tab-label-active {
+    
+    background-color: #ecaa00;
+    color: white;
+    border:1px solid #ecaa00;
+}
+
+.mat-tab-body-wrapper {
+    box-shadow:1px 2px 8px grey;
+    border-radius: 3px;
+}
