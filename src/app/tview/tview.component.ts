@@ -1,6 +1,7 @@
-import {Component, OnInit, OnDestroy, AfterViewInit,ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, OnDestroy, AfterViewInit, ViewEncapsulation} from '@angular/core';
 import {Observable, Observer, Subscription} from 'rxjs';
 import { UploadService } from '../upload.service';
+import { HttpClient, HttpRequest, HttpEventType, HttpResponse } from '@angular/common/http';
 
 export interface ExampleTab {
   label: string;
@@ -12,19 +13,22 @@ export interface ExampleTab {
   selector: 'app-tview',
   templateUrl: './tview.component.html',
   styleUrls: ['./tview.component.css'],
-  encapsulation:ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
-export class TviewComponent implements OnInit,AfterViewInit, OnDestroy {
+export class TviewComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  
+
 
   tabColor = 'red';
+
+  dataset: any = [];
+  keys = [];
 
   asyncTabs: Observable<ExampleTab[]>;
   // asyncTabs: any;
   subscription = Subscription;
 
-  // constructor(private uploadservice: UploadService) { 
+  // constructor(private uploadservice: UploadService) {
   //   this.asyncTabs = new Observable((observer: Observer<ExampleTab[]>) => {
   //     setTimeout(() => {
   //       observer.next([
@@ -36,18 +40,46 @@ export class TviewComponent implements OnInit,AfterViewInit, OnDestroy {
   //   });
   // }
 
-  constructor(private uploadService: UploadService){
-    this.asyncTabs = this.uploadService.getTabStatus();
+  constructor(private uploadService: UploadService, private http: HttpClient) {
+
   }
 
   ngOnInit() {
+
+  }
+
+  ngAfterViewInit() {
+  }
+
+  ngOnDestroy() {
     
   }
+  getDataSet(a) {
+    console.log(a.index)
 
-  ngAfterViewInit(){
-  }
+    if (a.index === 1) {
+      console.log("First CLicked")
+      var subscription = this.http.get("http://localhost:8000/api/dataset/").subscribe((data) => {
+        console.log(data)
+        this.dataset = JSON.parse(data)
 
-  ngOnDestroy(){
+        // this.dataset = JSON.parse(data)
+        var key = this.dataset[0]
+        for (var i in key) {
+          if ( key.hasOwnProperty( i ) ) { 
+            this.keys.push(i);
+          } 
+        }
+
+        console.log(this.dataset);
+        console.log(this.keys);
+
+      });
+    } else if (a.index === 2) {
+      console.log("2nd tab")
+    } else if (a.index === 3 ) {
+      console.log("3rd Tab")
+    }
 
   }
 
