@@ -19,7 +19,18 @@
       </tbody>
     </table>
   </mat-tab>
-  <mat-tab label="Second"> {{dataset}} </mat-tab>
+  <mat-tab label="Second"> <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" *ngFor="let key of keys">{{key}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of dataset2">
+          <td *ngFor="let key of keys">{{data[key]}}</td>
+        </tr>
+      </tbody>
+    </table> </mat-tab>
   <mat-tab label="Third"> {{dataset}}</mat-tab>
 </mat-tab-group>
 

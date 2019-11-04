@@ -22,6 +22,8 @@ export class TviewComponent implements OnInit, AfterViewInit, OnDestroy {
   tabColor = 'red';
 
   dataset: any = [];
+  dataset2: any = [];
+
   keys = [];
 
   asyncTabs: Observable<ExampleTab[]>;
@@ -59,9 +61,11 @@ export class TviewComponent implements OnInit, AfterViewInit, OnDestroy {
 
     if (a.index === 1) {
       console.log("First CLicked")
-      var subscription = this.http.get("http://localhost:8000/api/dataset/").subscribe((data) => {
+      var subscription = this.http.get("http://localhost:8000/api/dataset/").subscribe((data: string) => {
         console.log(data)
+        this.dataset = [];
         this.dataset = JSON.parse(data)
+        this.keys=[];
 
         // this.dataset = JSON.parse(data)
         var key = this.dataset[0]
@@ -76,6 +80,24 @@ export class TviewComponent implements OnInit, AfterViewInit, OnDestroy {
 
       });
     } else if (a.index === 2) {
+      var subscription = this.http.get("http://localhost:8000/api/dataset2/").subscribe((data: string) => {
+        console.log(data)
+        this.dataset2 = [];
+        this.dataset2 = JSON.parse(data)
+        this.keys=[];
+
+        // this.dataset = JSON.parse(data)
+        var key = this.dataset[0]
+        for (var i in key) {
+          if ( key.hasOwnProperty( i ) ) { 
+            this.keys.push(i);
+          } 
+        }
+
+        console.log(this.dataset);
+        console.log(this.keys);
+
+      });
       console.log("2nd tab")
     } else if (a.index === 3 ) {
       console.log("3rd Tab")

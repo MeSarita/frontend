@@ -9,6 +9,9 @@
     border-bottom: none;
 }
 
+.mat-tab-body-wrapper{
+    margin-top: 10px !important;
+}
 
 .mat-ink-bar {
     background-color: transparent !important;
